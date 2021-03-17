@@ -1,0 +1,7 @@
+medpy
+matplotlib
+numpy
+plaidml
+plaidml-keras
+opencv-python
+scipy
