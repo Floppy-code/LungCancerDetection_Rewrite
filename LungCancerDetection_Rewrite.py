@@ -5,7 +5,11 @@ from NeuralNetManager import NeuralNetManager
 
 def main():
     manager = NeuralNetManager()
-    manager.train_model()
+    
+    #Select one of three modes
+    #manager.train_model()
+    #manager.extract_features()
+    manager.train_model_extracted_features()
 
 
 main()
