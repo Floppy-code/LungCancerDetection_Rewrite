@@ -7,9 +7,9 @@ def main():
     manager = NeuralNetManager()
     
     #Select one of three modes
-    #manager.train_model()
+    manager.train_model()
     #manager.extract_features()
-    manager.train_model_extracted_features()
+    #manager.train_model_extracted_features()
 
 
 main()

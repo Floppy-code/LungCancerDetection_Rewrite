@@ -62,11 +62,12 @@ def get_pretrained_ResNet50_FC():
     return model
 
 def get_pretrained_ResNet50():
-    resnet_base = ResNet50(input_shape = NN_SHAPE_RGB, include_top = False, weights = 'imagenet')
-    resnet_base.trainable = False 
+    resnet_base = ResNet50(input_shape = NN_SHAPE_RGB,
+                           include_top = False,
+                           weights = 'imagenet')
+    resnet_base.trainable = False           
 
     inputs = Input(shape = NN_SHAPE_RGB)
-
     x = resnet_base(inputs)
     x = GlobalAveragePooling2D()(x)
     x = Dense(1024, activation = 'relu')(x)
@@ -75,8 +76,9 @@ def get_pretrained_ResNet50():
     outputs = Dense(1, activation = 'sigmoid')(x)
     
     model = Model(inputs, outputs)
-
-    model.compile(optimizer = Adam(lr = 0.000001), loss = 'binary_crossentropy', metrics = ['accuracy'])
+    model.compile(optimizer = Adam(lr = 0.000001),
+                  loss = 'binary_crossentropy',
+                  metrics = ['accuracy'])
     model.summary()
 
     return model
@@ -137,7 +139,7 @@ def get_pretrained_VGG19():
 
     model = Model(inputs, output)
 
-    model.compile(optimizer = Adam(lr = 0.000001), loss = 'binary_crossentropy', metrics = ['accuracy'])
+    model.compile(optimizer = Adam(lr = 0.000001), loss = 'binary_crossentropy', metrics = ['accuracy'])át
     model.summary()
 
     return model
@@ -160,7 +162,6 @@ def get_neural_net_Arch1():
     model.add(MaxPooling2D(pool_size = (2,2)))
 
     model.add(Conv2D(256, (3,3), padding = 'same'))
-    #model.add(BatchNormalization())
     model.add(Activation('relu'))
     model.add(MaxPooling2D(pool_size = (2,2)))
 
@@ -168,16 +169,16 @@ def get_neural_net_Arch1():
 
     model.add(Dense(4096))
     model.add(Activation('relu'))
-    model.add(Dropout(0.75))
+    model.add(Dropout(0.25))
 
     model.add(Dense(4096))
     model.add(Activation('relu'))
-    model.add(Dropout(0.75))
+    #model.add(Dropout(0.75))
 
     model.add(Dense(1))
     model.add(Activation('sigmoid'))
 
-    model.compile(optimizer = Adam(lr = 0.000005), loss = 'binary_crossentropy', metrics = ['accuracy'])
+    model.compile(optimizer = Adam(lr = 0.000001), loss = 'binary_crossentropy', metrics = ['accuracy'])
     model.summary()
     
     return model

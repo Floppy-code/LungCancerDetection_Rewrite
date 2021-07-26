@@ -143,7 +143,7 @@ class NeuralNetManager:
         start_fold = 0
         #for current_fold in range(start_fold, self._number_of_folds):
         for current_fold in range(start_fold, self._number_of_folds):
-            model_name = 'LUNA16_ResNet50_Experiment_11'
+            model_name = 'LUNA16_Oberta_ExtDat_Experiment_2'
             data_name = 'ResNet50'
             data = self.load_extracted_features(data_name, current_fold)
 
@@ -189,9 +189,9 @@ class NeuralNetManager:
                 self.save_training_statistics(TRAINING_HISTORY_LOSS, history.history['loss'], model_name, current_fold)
 
     def train_model(self):
-        model_name = 'LUNA16_VGG19_0255'
+        model_name = 'LUNA16_Oberta_ExtDat_Experiment_1'
         #Used for statistics
-        start_fold = 4
+        start_fold = 0
         for current_fold in range(start_fold, self._number_of_folds):
             #Data
             data = self.load_dataset(current_fold, DATASETS_FOLDER, OVERSAMPLING)
@@ -203,7 +203,7 @@ class NeuralNetManager:
             label_set_validation = data[1][1]
 
             #In case the model needs RGB images!
-            rgb_input = True
+            rgb_input = False
             if (rgb_input):
                 #training
                 print(feature_set_training.shape)  # (x, 128, 128, 1)
@@ -221,8 +221,8 @@ class NeuralNetManager:
 
             
             #PREPROCESS FOR 3RD PARTY NEURAL NETS
-            feature_set_training = preprocess_input(feature_set_training)
-            feature_set_validation = preprocess_input(feature_set_validation)
+            #feature_set_training = preprocess_input(feature_set_training)
+            #feature_set_validation = preprocess_input(feature_set_validation)
                 
             unique, counts = np.unique(label_set_training, return_counts=True)
             print(dict(zip(unique, counts)))
@@ -242,7 +242,7 @@ class NeuralNetManager:
             early_stopping = EarlyStopping(monitor='val_loss', mode='min', verbose=1, patience=10)
 
             #Training
-            model = NeuralNet.get_pretrained_VGG19()
+            model = NeuralNet.get_neural_net_Arch1()
             history = model.fit(feature_set_training, label_set_training,
                                 batch_size = 64,
                                 epochs = 100,

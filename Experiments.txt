@@ -16,6 +16,9 @@ LUNA16_Arch1_Experiment_4 - LUNA16_Arch1_Experiment_2 mal dobré výsledky, zdá
 LUNA16_Arch1_Experiment_5 - Rovnaká architektúra ako Experiment 4, zvýšenie EarlyStop patience na 10 epoch. Adam(lr = 0.00001)
 LUNA16_Arch1_Experiment_6 - Mnou navrhnutá sieť využívajúca 4 konvolučné bloky a plne-prepojené vrstvy inšpirované VGG19. Adam(lr = 0.000001)
 LUNA16_Arch1_Experiment_7 - Mnou navrhnutá sieť využívajúca 4 konvolučné bloky a plne-prepojené vrstvy inšpirované VGG19. Zvýšený LR. Adam(lr = 0.000005)
+LUNA16_Oberta_Experiment_8 - LUNA16_Arch1_Experiment_7 s pridaným 0.25 dropout na plne-prepojených vrstvách. Adam(lr = 0.000001)
+LUNA16_Oberta_Experiment_9 - LUNA16_Arch1_Experiment_7 s pridaným 0.50 dropout na plne-prepojených vrstvách. Adam(lr = 0.000001)
+LUNA16_Oberta_Experiment_10 - LUNA16_Arch1_Experiment_7 s pridaným 0.75 dropout na plne-prepojených vrstvách. Adam(lr = 0.000001)
 LUNA16_Arch1_Experiment_8 - LUNA16_Arch1_Experiment_7 s pridaným 0.25 dropout na plne-prepojených vrstvách. Adam(lr = 0.000005)
 LUNA16_Arch1_Experiment_9 - LUNA16_Arch1_Experiment_7 s pridaným 0.50 dropout na plne-prepojených vrstvách. Adam(lr = 0.000005)
 LUNA16_Arch1_Experiment_10 - LUNA16_Arch1_Experiment_7 s pridaným 0.75 dropout na plne-prepojených vrstvách. Adam(lr = 0.000005)
@@ -23,6 +26,7 @@ LUNA16_Arch1_Experiment_11 - LUNA16_Arch1_Experiment_7 model s pridaným BatchNo
 
 LUNA16_Arch1_ExtDat_Experiment_1 - LUNA16_Arch1_Experiment_7 tréning pomocou extended datasetu. Adam(lr = 0.000005)
 LUNA16_Arch1_ExtDat_Experiment_2 - LUNA16_Arch1_Experiment_10 tréning pomocou extended datasetu. Adam(lr = 0.000005)
+LUNA16_Arch1_ExtDat_Experiment_3 - LUNA16_Oberta_Experiment_10 tréning pomocou extended datasetu. Adam(lr = 0.000001)
 
 LUNA16_VGG19_DEFAULT - VGG19 skratena o prve, plne-prepojene vrstvy. Test presnosti pri 0-1 datach. Adam(lr = 0.00001)
 LUNA16_VGG19_Experiment_1 - VGG19 skratena o prve, plne-prepojene vrstvy. Test presnosti pri 0-255 datach. Adam(lr = 0.000001)
